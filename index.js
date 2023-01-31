@@ -3,11 +3,12 @@
 
 const axios = require("axios");
 const request = require("request");
+const cors = require('cors')
 const express = require("express");
 const app = express();
 
 
-
+app.use(cors())
 app.get("/", (req, res) => {
 	try {
 		axios.get(`https://mdcpsportalapps2.dadeschools.net/PIVredirect/?ID=${req.query.id}`)
