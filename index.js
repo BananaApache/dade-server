@@ -112,8 +112,18 @@ app.get("/course", (req, res) => {
 
 
 // app.listen(8000)
-app.listen(8000, "127.0.0.1", function() {
-	console.log("\nListening on: http://127.0.0.1:8000/\n")
-})
+// app.listen(8000, "127.0.0.1", function() {
+// 	console.log("\nListening on: http://127.0.0.1:8000/\n")
+// })
+
+module.exports = app;
+
+// If you want to support local development, you can add a conditional check
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 8000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
 
